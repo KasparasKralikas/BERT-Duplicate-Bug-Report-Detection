@@ -1,7 +1,7 @@
 import json, random, numpy as np
 
-ISSUES_FILE = "esn.json"
-GENERATED_PAIRS_FILE = "esn_pairs.json"
+ISSUES_FILE = 'esn.json'
+GENERATED_PAIRS_FILE = 'esn_pairs.json'
 
 def main():
     f = open(ISSUES_FILE, 'rb')
@@ -54,5 +54,5 @@ def get_duplicate_pair(issues, duplicate_issues):
         'label': 1
     }
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
