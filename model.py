@@ -28,6 +28,7 @@ class BugPairsData:
         self.tokenizer = tokenizer
         self.max_sequence_length = max_sequence_length
         ((self.train_x_1, self.train_x_2, self.train_y), (self.test_x_1, self.test_x_2, self.test_y)) = map(self._prepare_data, [train_data, test_data])
+        self.train_x_1, self.train_x_2, self.test_x_1, self.test_x_2 = map(self._apply_padding, [self.train_x_1, self.train_x_2, self.test_x_1, self.test_x_2])
 
 
     def _prepare_data(self, dataframe):
@@ -40,6 +41,16 @@ class BugPairsData:
             x_2.append(token_ids_2)
             y.append(label)
         return np.array(x_1, dtype=object), np.array(x_2, dtype=object), np.array(y, dtype=object)
+
+    def _apply_padding(self, ids):
+        x = []
+        for input_ids in ids:
+            cut_point = min(len(input_ids), self.max_sequence_length - 2)
+            input_ids = input_ids[:cut_point]
+            input_ids = input_ids + [0] * (self.max_sequence_length - len(input_ids))
+            x.append(np.array(input_ids))
+        return np.array(x)
+
 
     def _tokenize(self, text):
         tokens = self.tokenizer.tokenize(text)
