@@ -130,3 +130,6 @@ dmypy.json
 
 # Bert pretrained model directory
 bert_model/
+
+# Logs
+logs/

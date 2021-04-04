@@ -6,7 +6,7 @@ GENERATED_PAIRS_FILE = 'esn_pairs.json'
 def main():
     f = open(ISSUES_FILE, 'rb')
     issues = np.asarray(json.load(f))
-    pairs = generate_pairs(issues, 100, 0.5)
+    pairs = generate_pairs(issues, 600, 0.5)
     f = open(GENERATED_PAIRS_FILE, 'w')
     json.dump(pairs, f)
 
