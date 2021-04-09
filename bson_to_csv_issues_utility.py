@@ -20,6 +20,7 @@ def main():
             'short_desc': str(issue['short_desc']),
             'description': str(issue['description'])
         }, ignore_index=True)
+    df = df.sort_values(by='bug_id')
     df.to_csv(output_file, index=False)
     return
 
