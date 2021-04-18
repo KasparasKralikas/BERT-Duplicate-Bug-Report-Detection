@@ -22,7 +22,7 @@ def main():
             'dup_id': None if not issue['dup_id'] else int(issue['dup_id']),
             'master_id': int(issue['bug_id']) if not issue['dup_id'] else int(issue['dup_id']),
             'short_desc': str(issue['short_desc']),
-            'description': str(issue['description'])
+            'description': '' if 'description' not in issue else str(issue['description'])
         })
     df = pd.DataFrame(rows_list)
     df = df.sort_values(by='bug_id')
