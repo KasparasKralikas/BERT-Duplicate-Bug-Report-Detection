@@ -1,11 +1,12 @@
 import json, random, numpy as np, pandas as pd
 
-ISSUES_FILE = 'esn.csv'
-GENERATED_PAIRS_FILE = 'esn_pairs.csv'
+ISSUES_FILE = 'ooall.csv'
+GENERATED_PAIRS_FILE = 'ooall_pairs_40000.csv'
 
 def main():
     issues = get_issues(ISSUES_FILE)
-    pairs_df = generate_pairs(issues, 2, 0.5)
+    print(len(issues))
+    pairs_df = generate_pairs(issues, 40000, 0.5)
     pairs_df.to_csv(GENERATED_PAIRS_FILE, index=False)
 
 def get_issues(issues_file):
@@ -20,10 +21,12 @@ def generate_pairs(issues, count, duplicate_pairs_part):
     pairs_list = []
     # Generate non-duplicate pairs
     for i in range(non_duplicates_count):
+        print(i)
         pairs_list.append(get_non_duplicate_pair(issues))
     # Generate duplicate pairs
     duplicate_issues = issues[(issues['dup_id'].notnull())]
     for i in range(duplicates_count):
+        print(i)
         pairs_list.append(get_duplicate_pair(issues, duplicate_issues))
     random.shuffle(pairs_list)
     df = pd.DataFrame(pairs_list)
@@ -45,7 +48,7 @@ def get_non_duplicate_pair(issues):
 
 def get_duplicate_pair(issues, duplicate_issues):
     issue_1 = duplicate_issues.sample().iloc[0]
-    filtered_issues = issues[(issues['master_id'] == issue_1['master_id']) & (issues['bug_id'] != issue_1['bug_id'])]
+    filtered_issues = issues[((issues['master_id'] == issue_1['master_id']) | (issues['bug_id'] == issue_1['master_id'])) & (issues['bug_id'] != issue_1['bug_id'])]
     issue_2 = filtered_issues.sample().iloc[0]
     return {
         'bug_id_1': issue_1['bug_id'],
