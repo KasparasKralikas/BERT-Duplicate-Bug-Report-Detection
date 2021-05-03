@@ -27,6 +27,11 @@ http://alazar.people.ysu.edu/msr14data/
 
 This contains MongoDB dumps in .bson format that can later on be consumed by the helper scripts to prepare the data for the model.
 
+Install requirements before using the utility scripts:
+```
+ pip install -r .\requirements.txt
+```
+
 #### bson_to_csv_issues_utility.py
 
 Parses bson dump file of bugs dataset, preprocesses it and returns a csv file of all the issues in the dataset.
@@ -36,7 +41,7 @@ Example use:
 python .\bson_to_csv_issues_utility.py --input ooall.bson --output ooall.csv
 ```
 
-### pairs_generator_csv.py
+#### pairs_generator_csv.py
 
 Generates bug description pairs for model fine-tuning. Can be configured by tweaking constants within the script:
 - **ISSUES_FILE** - source for the generated csv file containing all of the issues
