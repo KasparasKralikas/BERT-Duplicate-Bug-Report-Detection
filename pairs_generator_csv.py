@@ -4,7 +4,7 @@ ISSUES_FILE = 'ooall.csv'
 GENERATED_PAIRS_FILE = 'ooall_pairs_40000.csv'
 PAIRS_COUNT = 40000
 DUPLICATE_PAIRS_RATIO = 0.5
-# What part of the original issues pool use for pair generation
+# What part of the original issues pool to use for pairs generation
 PART_TO_USE_FOR_GENERATION = 0.9
 
 def main():
