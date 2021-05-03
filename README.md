@@ -54,3 +54,15 @@ Example use:
 ```
 python .\pairs_generator_csv.py
 ```
+
+### Author
+
+**Kasparas Kralikas**
+
+* [github](https://github.com/KasparasKralikas)
+* [linkedin](https://www.linkedin.com/in/kasparas-kralikas-905848156/)
+
+### License
+
+Copyright © 2021, [Kasparas Kralikas](https://github.com/KasparasKralikas).
+Released under the [MIT License](LICENSE).
