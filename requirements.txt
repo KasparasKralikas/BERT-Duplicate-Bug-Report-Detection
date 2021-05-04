@@ -1,5 +1,5 @@
+sentence_transformers==1.1.0
 pandas==1.2.3
 numpy==1.19.5
-Flask==1.1.2
 pymongo==3.11.3
-sentence_transformers==1.1.0
+Flask==1.1.2
