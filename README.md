@@ -77,7 +77,7 @@ Then run the following command:
 
 This should start the server on a local machine listening on port 5000. 
 
-Retrieve top-K similar issues for the given issue description:
+#### Retrieve top-K similar issues for the given issue description:
 - POST: localhost:5000/retrieve_duplicates
 
 Requires JSON body with *description* and *top_k* properties:
