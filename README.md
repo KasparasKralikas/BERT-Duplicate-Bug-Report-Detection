@@ -103,6 +103,7 @@ Example response:
             "similarity": 0.92
         },
         ...
+    ]
 }
 ```
 
