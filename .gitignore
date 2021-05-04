@@ -128,8 +128,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Bert pretrained model directory
-bert_model/
+# Pretrained model directory
+model/
 
 # Logs
 logs/
+
+# Precalculated embeddings directory
+embeddings/
