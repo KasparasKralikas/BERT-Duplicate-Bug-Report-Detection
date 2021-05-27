@@ -25,7 +25,7 @@ PORT = 5000
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/get_duplicates/', methods=['POST'])
+@app.route('/retrieve_duplicates/', methods=['POST'])
 def get_duplicates():
     body = request.get_json(silent=True)
     description = body['description']
